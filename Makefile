@@ -59,4 +59,10 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st-urlhandler
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
 
+archive:
+	mkdir -p st-$(VERSION)
+	cp -R st st-copyout st-urlhandler st.1 st-$(VERSION)
+	tar -cf - st-$(VERSION) | gzip > st-$(VERSION).tar.gz
+	rm -rf st-$(VERSION)
+
 .PHONY: all options clean dist install uninstall
