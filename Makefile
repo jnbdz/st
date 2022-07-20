@@ -61,8 +61,7 @@ uninstall:
 
 archive:
 	mkdir -p st-$(VERSION)
-	cp -R st st-copyout st-urlhandler st.1 st-$(VERSION)
-	tar -cf - st-$(VERSION) | gzip > st-$(VERSION).tar.gz
+	tar -cvf st-$(VERSION).tar st st-copyout st-urlhandler st.1 | gzip > st-$(VERSION).tar.gz
 	rm -rf st-$(VERSION)
 
 .PHONY: all options clean dist install uninstall
