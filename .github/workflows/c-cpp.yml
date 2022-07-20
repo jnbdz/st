@@ -31,6 +31,8 @@ jobs:
           return context.payload.ref.replace(/\/refs\/tags\//, '');
     - name: Echo
       run: echo ${{ steps.tag.outputs.result }}
+    - name: Github ref
+      run: echo $GITHUB_REF
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
