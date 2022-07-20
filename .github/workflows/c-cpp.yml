@@ -1,9 +1,9 @@
-name: C/C++ CI
+name: CI for st
 
-on:
-  release:
-    types: [ "published", "released", "created", "prereleased" ]
-    branches: [ "master" ]
+env:
+  version: "0.8.4"
+
+on: 
   push:
     branches: [ "master" ]
 
@@ -27,8 +27,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: "v0.8.4"
-        release_name: Release v0.8.4
+        tag_name: ${{env.version}}
+        release_name: Release ${{env.version}}
         draft: false
         prerelease: false
     - name: Upload Release Asset
@@ -38,6 +38,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./st-0.8.4.tar.gz
-        asset_name: st-v0.8.4.tar.gz
+        asset_path: ./st-${{env.version}}.tar.gz
+        asset_name: st-v${{env.version}}.tar.gz
         asset_content_type: application/gzip
