@@ -2,7 +2,7 @@ name: C/C++ CI
 
 on:
   release:
-    types: [ "published" ]
+    types: [ "published", "released", "created", "prereleased" ]
     branches: [ "master" ]
   push:
     branches: [ "master" ]
