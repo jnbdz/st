@@ -4,3 +4,4 @@ patches/
 st
 *.orig
 *.tar.gz
+*.swp
