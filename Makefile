@@ -61,7 +61,7 @@ uninstall:
 
 archive:
 	mkdir -p st-$(VERSION)
-	cp -R st st-copyout st-urlhandler st.1 st-$(VERSION)
+	cp -R st st-copyout st-urlhandler st.1 st.info st-$(VERSION)
 	tar -cf - st-$(VERSION) | gzip > st-$(VERSION).tar.gz
 	rm -rf st-$(VERSION)
 
